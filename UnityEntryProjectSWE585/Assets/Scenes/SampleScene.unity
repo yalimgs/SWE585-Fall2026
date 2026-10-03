@@ -931,7 +931,7 @@ Transform:
   m_GameObject: {fileID: 971367574}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 6.54, y: 7.66, z: 0.89}
+  m_LocalPosition: {x: 6.2, y: 7.2, z: 0.89}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -964,6 +964,7 @@ GameObject:
   - component: {fileID: 1036173372}
   - component: {fileID: 1036173371}
   - component: {fileID: 1036173375}
+  - component: {fileID: 1036173376}
   m_Layer: 0
   m_Name: CubeSlope
   m_TagString: Untagged
@@ -1078,6 +1079,28 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerController
   rb: {fileID: 0}
   moveSpeed: 5
+--- !u!95 &1036173376
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1036173370}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 5841849f340bcff44bde0b7f42a1e22e, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1153105975
 GameObject:
   m_ObjectHideFlags: 0
@@ -1117,7 +1140,7 @@ Transform:
   m_GameObject: {fileID: 1153105975}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.61, y: 7.34, z: 1.11}
+  m_LocalPosition: {x: 1.97, y: 7.34, z: 1.11}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1766,7 +1789,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2774108727316557918, guid: 7b50f3ebba68f0c48930e3ea8fe18328, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.77
+      value: 1.67
       objectReference: {fileID: 0}
     - target: {fileID: 2774108727316557918, guid: 7b50f3ebba68f0c48930e3ea8fe18328, type: 3}
       propertyPath: m_LocalPosition.y
