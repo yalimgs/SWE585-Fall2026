@@ -1,0 +1,14 @@
+# Normalize line endings so Windows PCs (home PC, Ford laptop) do not show
+# "No content changes" phantom modifications in GitHub Desktop.
+* text=auto
+
+# Unity YAML files are always stored and checked out with LF
+*.unity text eol=lf
+*.prefab text eol=lf
+*.asset text eol=lf
+*.meta text eol=lf
+*.mat text eol=lf
+*.anim text eol=lf
+*.controller text eol=lf
+*.physicMaterial text eol=lf
+*.inputactions text eol=lf
