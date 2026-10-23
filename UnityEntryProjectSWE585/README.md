@@ -59,8 +59,3 @@ Create a sound source and play an mp4 sound.
 
 ### 2.14 (Optional) Making the camera follow the player
 Games need to have the camera focus on the play area, so that the player does not miss out on any action. The position of the camera depends on the type of game (First Person Shooters vs. 2D Platformers). The camera in this case should follow the "player object" that was defined earlier. Even though this can be done via a script that is applied to the camera, there is a much simpler way to accomplish this.
-
-## IMPORTANT
-**Please do not push the entire project to GitHub at once. Commit the steps in the project step by step.**
-
-**Upload a brief video demonstrating the project's steps to Moodle.**
