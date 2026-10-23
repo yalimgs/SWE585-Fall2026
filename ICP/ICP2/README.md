@@ -54,15 +54,15 @@ I opened TestScene and ran the game. All three balls hit the brick wall and stop
 
 | Ball Speed (Direction X) | Barrier Thickness (Scale X) | Tunneling observed? | Comments |
 |---|---|---|---|
-| −10 | 0.02 | 0/10 | |
-| −10 | 0.05 | 0/10 | |
-| −10 | 1 | 0/10 | |
+| −10 | 0.02 | 0/10 | – |
+| −10 | 0.05 | 0/10 | – |
+| −10 | 1 | 0/10 | – |
 | −15 | 0.02 | 10/10 | 2 balls passed through (1st & 3rd) |
 | −15 | 0.05 | 10/10 | 2 balls passed through (1st & 3rd) |
-| −15 | 1 | 0/10 | |
+| −15 | 1 | 0/10 | – |
 | −20 | 0.02 | 10/10 | 3rd ball passed through |
 | −20 | 0.05 | 10/10 | 3rd ball passed through |
-| −20 | 1 | 0/10 | |
+| −20 | 1 | 0/10 | – |
 
 ### STEP 5
 *Collaboratively discuss and comment on the above results as a group.*
