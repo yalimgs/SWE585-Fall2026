@@ -4,7 +4,10 @@
 **Group #:** 1
 **Group Members:** Yalım Özçağlayan, Oğuz Beren Özşahin, Batu Demir
 
-**STEP 1:** Provide your system summary below.
+---
+
+### STEP 1
+*Provide your system summary below.*
 
 | System Summary | |
 |---|---|
@@ -13,19 +16,22 @@
 | RAM | 16 GB 5200 MT/s |
 | Unity Version | Unity 6.3 LTS (6000.3.25f1) |
 
-**STEP 2:** Create a ball that perpetually bounces on a platform. (Ball should keep the same height at each bounce)
+### STEP 2
+*Create a ball that perpetually bounces on a platform. (Ball should keep the same height at each bounce)*
+*(Hint: You will not need to write any code for this ICP. You will need to create a "Physics material" and assign it to your ball. Hopefully physics engine will do the rest)*
 
-*(Hint: You will **not** need to write any code for this ICP. You will need to create a "Physics material" and assign it to your ball. Hopefully physics engine will do the rest)*
+A platform and a ball were created in `Assets/Scenes/SampleScene.unity`. No code was written; the bouncing is done only with a Physics Material (`Assets/BouncyMaterial.physicMaterial`) and Rigidbody / Time settings (see Step 4).
 
-**STEP 3:** Paste below screenshot of your final scene.
+### STEP 3
+*Screenshot of the final scene.*
 
-**STEP 4:** Explain the flow of your work (as a group). What properties of unity you used, what parameters you changed etc – max 200 words.
+The final scene is `Assets/Scenes/SampleScene.unity`. Press Play to see the ball bouncing on the platform.
 
-- **Platform:** no Rigidbody, so it stays fixed.
-- **Ball:** Sphere at height 10 with a Rigidbody (gravity + collisions).
-- **Physics Material (on the ball's Sphere Collider):** Bounciness = 1, Bounce Combine = Maximum, Dynamic/Static Friction = 0, Friction Combine = Minimum.
-- **Rigidbody:** Linear Damping = 0, Angular Damping = 0.
-- **Time:** Fixed Timestep = 0.001.
-- **Result:** the ball bounces back to almost the same height every time.
+### STEP 4
+*Explain the flow of your work (as a group). What properties of Unity you used, what parameters you changed etc. – max 200 words.*
 
-**What to submit:** This file. (Every member should submit)
+We started by setting up the scene in Unity. First, we created a platform. We did not add a Rigidbody to the platform, so it stays fixed and is not affected by gravity. Next, we created a Sphere as the ball, placed it at a height of 10 units, and added a Rigidbody component so that gravity and collisions would act on it.
+
+To make the ball bounce forever without writing any code, we created a Physics Material. We set its Bounciness to 1 and its Bounce Combine mode to Maximum, so the ball keeps all of its energy on every impact. We set both friction values to 0 with Friction Combine set to Minimum, so the ball loses no energy to friction or spin. We assigned this material to the ball's Sphere Collider. We set the Fixed Timestep to 0.001.
+
+Finally, we set the Rigidbody's Linear and Angular Damping to 0 to remove air resistance. When we tested the scene in Play mode, the ball bounced back to almost the same height every time.
