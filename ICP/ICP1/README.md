@@ -9,12 +9,12 @@
 ### STEP 1
 *Provide your system summary below.*
 
-| Component | Value |
-|---|---|
-| Operating System | Windows 11 Enterprise 25H2 |
-| CPU | 13th Gen Intel Core i7-1370P (1.90 GHz) |
-| RAM | 16 GB 5200 MT/s |
-| Unity Version | Unity 6.3 LTS (6000.3.25f1) |
+<table>
+  <tr><td>Operating System</td><td>Windows 11 Enterprise 25H2</td></tr>
+  <tr><td>CPU</td><td>13th Gen Intel Core i7-1370P (1.90 GHz)</td></tr>
+  <tr><td>RAM</td><td>16 GB 5200 MT/s</td></tr>
+  <tr><td>Unity Version</td><td>Unity 6.3 LTS (6000.3.25f1)</td></tr>
+</table>
 
 ### STEP 2
 *Create a ball that perpetually bounces on a platform. (Ball should keep the same height at each bounce)*

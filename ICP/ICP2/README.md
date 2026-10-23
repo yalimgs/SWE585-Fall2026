@@ -9,12 +9,12 @@
 ### STEP 1
 *Provide your system summary below.*
 
-| Component | Value |
-|---|---|
-| Operating System | Windows 11 Pro |
-| CPU | AMD Ryzen 9 7900X3D (12 cores / 24 threads) |
-| RAM | 64 GB DDR5-6000 |
-| Unity Version | 6000.3.26f1 |
+<table>
+  <tr><td>Operating System</td><td>Windows 11 Pro</td></tr>
+  <tr><td>CPU</td><td>AMD Ryzen 9 7900X3D (12 cores / 24 threads)</td></tr>
+  <tr><td>RAM</td><td>64 GB DDR5-6000</td></tr>
+  <tr><td>Unity Version</td><td>6000.3.26f1</td></tr>
+</table>
 
 ### STEP 2
 *Open the scene and run the game. You should see the tunneling effect in action.*
@@ -24,17 +24,17 @@ I opened TestScene and ran the game. All three balls hit the brick wall and stop
 ### STEP 3a
 *Discuss as a group what parameters are effective on the Tunneling Phenomenon. Try to identify them. (Barrier thickness is one of them, what about the others?) Note that these parameters must be changeable by Unity Editor menus and/or C# scripts. Make a list of all such parameters below.*
 
-| # | Parameter |
-|---|---|
-| Parameter #1 | Barrier Thickness |
-| Parameter #2 | Ball Speed (Push Force) |
-| Parameter #3 | Fixed Timestep |
-| Parameter #4 | Collision Detection Mode |
-| Parameter #5 | Ball Size |
-| Parameter #6 | Ball Mass |
-| Parameter #7 | Linear Damping (Drag) |
-| Parameter #8 | Distance to the Wall |
-| Parameter #9 | Friction (Physics Material) |
+<table>
+  <tr><td>Parameter #1</td><td>Barrier Thickness</td></tr>
+  <tr><td>Parameter #2</td><td>Ball Speed (Push Force)</td></tr>
+  <tr><td>Parameter #3</td><td>Fixed Timestep</td></tr>
+  <tr><td>Parameter #4</td><td>Collision Detection Mode</td></tr>
+  <tr><td>Parameter #5</td><td>Ball Size</td></tr>
+  <tr><td>Parameter #6</td><td>Ball Mass</td></tr>
+  <tr><td>Parameter #7</td><td>Linear Damping (Drag)</td></tr>
+  <tr><td>Parameter #8</td><td>Distance to the Wall</td></tr>
+  <tr><td>Parameter #9</td><td>Friction (Physics Material)</td></tr>
+</table>
 
 ### STEP 3b
 *Feel free to play with some of it and see if tunneling stays or disappears.*
@@ -47,10 +47,10 @@ I opened TestScene and ran the game. All three balls hit the brick wall and stop
 ### STEP 4
 *Design a series of Collision Detection experiments. In these experiments collision detection mode should be discrete. First choose just two of the parameters you identified. Run some experiments with different values and report their results. Repeat each experiment instance 10 times and summarize the result using the notation 3/10 (tunneling observed 3 out of 10 runs).*
 
-| # | Parameter |
-|---|---|
-| Parameter Chosen 1 | Ball Speed (Direction X) |
-| Parameter Chosen 2 | Barrier Thickness (Scale X) |
+<table>
+  <tr><td>Parameter Chosen 1</td><td>Ball Speed (Direction X)</td></tr>
+  <tr><td>Parameter Chosen 2</td><td>Barrier Thickness (Scale X)</td></tr>
+</table>
 
 | Ball Speed (Direction X) | Barrier Thickness (Scale X) | Tunneling observed? | Comments |
 |---|---|---|---|
