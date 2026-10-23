@@ -1,7 +1,7 @@
 # SWE 585 In Class Practice #2 – Collision Detection and Tunneling
 
-**Date:** 14.10.2026
-**Name, Surname:** Yalım Özçağlayan
+**Date:** 14.10.2026  
+**Name, Surname:** Yalım Özçağlayan  
 **Scene:** `Assets/Scenes/TestScene.unity`
 
 ---
@@ -9,7 +9,7 @@
 ### STEP 1
 *Provide your system summary below.*
 
-| System Summary | |
+| Component | Value |
 |---|---|
 | Operating System | Windows 11 Pro |
 | CPU | AMD Ryzen 9 7900X3D (12 cores / 24 threads) |
@@ -24,7 +24,7 @@ I opened TestScene and ran the game. All three balls hit the brick wall and stop
 ### STEP 3a
 *Discuss as a group what parameters are effective on the Tunneling Phenomenon. Try to identify them. (Barrier thickness is one of them, what about the others?) Note that these parameters must be changeable by Unity Editor menus and/or C# scripts. Make a list of all such parameters below.*
 
-| | |
+| # | Parameter |
 |---|---|
 | Parameter #1 | Barrier Thickness |
 | Parameter #2 | Ball Speed (Push Force) |
@@ -47,7 +47,7 @@ I opened TestScene and ran the game. All three balls hit the brick wall and stop
 ### STEP 4
 *Design a series of Collision Detection experiments. In these experiments collision detection mode should be discrete. First choose just two of the parameters you identified. Run some experiments with different values and report their results. Repeat each experiment instance 10 times and summarize the result using the notation 3/10 (tunneling observed 3 out of 10 runs).*
 
-| | |
+| # | Parameter |
 |---|---|
 | Parameter Chosen 1 | Ball Speed (Direction X) |
 | Parameter Chosen 2 | Barrier Thickness (Scale X) |

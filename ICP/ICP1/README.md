@@ -1,7 +1,7 @@
 # SWE 585 In Class Practice #1 – Warming Up
 
-**Date:** 07.10.2026
-**Group #:** 1
+**Date:** 07.10.2026  
+**Group #:** 1  
 **Group Members:** Yalım Özçağlayan, Oğuz Beren Özşahin, Batu Demir
 
 ---
@@ -9,7 +9,7 @@
 ### STEP 1
 *Provide your system summary below.*
 
-| System Summary | |
+| Component | Value |
 |---|---|
 | Operating System | Windows 11 Enterprise 25H2 |
 | CPU | 13th Gen Intel Core i7-1370P (1.90 GHz) |
