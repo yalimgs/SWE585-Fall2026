@@ -1,33 +1,66 @@
-# SWE 585 – Unity Entry Project
+# Unity Entry Project – SWE 585
 
-**Unity:** 6000.3.26f1  **Scene:** `Assets/Scenes/SampleScene.unity`
+## 1 Introduction
+This project aims to teach the basic features and workflow of the Unity engine. By the end of the project, the following topics will have been covered:
+- Object creation
+- Object translation, rotation, scaling
+- Rigidbodies and physics
+- Physics materials
+- Materials and Textures
+- Scripting and Inputs
+- Lighting and Camera details
+- Animation
+- Sound
 
-## Goal
-Learn the basic features and workflow of Unity: object creation, transforms, rigidbodies and physics,
-physics materials, materials and textures, scripting and inputs, lighting, camera, animation and sound.
+## 2 Steps of the project
 
-## What was done
-| Step | Task | How it was done |
-|---|---|---|
-| 2.1 | Platform | `Platform` with a kinematic Rigidbody (not affected by forces or gravity), surrounded by `Wall1–4` |
-| 2.2 | Movable objects | `CubeObject` and `PLAYER` with Rigidbodies, affected by forces, collisions and gravity |
-| 2.3 | Physics materials | `BouncyMaterial` physics material, tested on the `CubeSlope` slope |
-| 2.4 | Collision | Movable objects are dropped on the platform and collide with it |
-| 2.5 | Scripts | Scripts are in `Assets/Scripts`, all derive from `MonoBehaviour` |
-| 2.6 | Forces | `ObjectController.cs` adds a constant force every physics step (Rigidbody assigned in the Inspector) |
-| 2.7 | Textures | `SphereMaterial` / `PLAYERMaterial` made from image textures (`space_texture.jpg`, `New Texture.png`) |
-| 2.8 | Prefabs | `SphereObject` prefab; `ObjectSpawner.cs` spawns it when **Space** is pressed |
-| 2.9 | Lighting | Directional Light, Point Light and Spot Light |
-| 2.10 | Camera | Camera position, rotation and field of view adjusted |
-| 2.11 | Inputs | `PlayerController.cs` moves `PLAYER` with **WASD / Arrow keys** using forces |
-| 2.12 | Animation | `CubeScale` animation scales the cube up and down (`CubeSlope` controller) |
-| 2.13 | Sound | Audio Source plays `Warm Pulse.mp3`; `SoundController.cs` pauses/resumes it with **M** |
-| 2.14 | Camera follow (optional) | Main Camera is a child of `PLAYER`, so it follows the player without a script |
+### 2.1 Create a platform
+A platform GameObject should be created. This platform should not be affected by forces, collisions or gravity. It should possess a RigidBody. Optionally, it should be surrounded by walls.
 
-## Controls
-- **WASD / Arrow keys:** move the player
-- **Space:** spawn a new sphere
-- **M:** pause / resume the music
+### 2.2 Creating moveable objects
+Like the platform above, multiple other GameObjects should be created. These objects should be affected by forces, collisions and gravity. These should also have RigidBodies.
 
-## How to run
-Open this folder in Unity Hub, open `SampleScene` and press Play.
+### 2.3 Adding physic materials
+Physic Materials should be added to the movable objects to see how they behave on surfaces with different values. To test these out, immovable slopes could be added. Keep in mind that Unity physics are not realistic and objects like spheres will only consider a single contact point, and physics materials may not behave as you would expect them to. Using cubes is preferable.
+
+### 2.4 Handling Collision
+Collision between objects should be tested by placing the moveable objects in places where they can naturally be affected by gravity. The immovable platforms should stay put, but affect the dropping objects regardless.
+
+### 2.5 Creating scripts
+A sample script should be created in the project folder. Preferably, it should have its own Scripts folder. The script should derive from MonoBehaviour. The script then should be added to one of the moveable objects.
+
+### 2.6 Applying forces to RigidBodies
+The script should take the RigidBody component of the object and add a certain amount of force to it every frame. The script can acquire the RigidBody via Unity's GUI by dragging and dropping, outside of the script itself.
+
+### 2.7 Adding textures
+Materials should be created using images, which can then be assigned to the Mesh Renderer of any 3D object. The image can be added to any of the fields of the material (Albedo, Metallic, etc.) proving different results.
+
+### 2.8 Prefabs
+Prefabs are an easy way to save a certain object that you created so that it can be used and spawned as necessary. A prefab from any of the movable objects should be created and must have a script that can be used to spawn new objects by pressing a button on the keyboard.
+
+### 2.9 Adding lighting
+Various sources of lighting should be added to the scene. Be mindful that lighting systems work off of the GPU.
+
+### 2.10 Modifying the Camera
+The camera should be modified to show a better view of the scene. Its position, rotation, scale, Field of View, and more, can all be adjusted inside the scene.
+
+### 2.11 Making objects respond to inputs
+Games require a player to function. By adding a way to check for inputs inside a script, we can control an object. For this exercise, the object should respond to inputs by adding force in the direction the inputs were received from, preferably by using WASD or arrow keys.
+
+### 2.12 Creating an animation
+Make a simple animation that scales a cube up and down.
+
+**Optional:** Create additional animations and establish an animation flow using an animation controller.
+
+### 2.13 Play a sound
+Create a sound source and play an mp4 sound.
+
+**Optional:** Implement a functionality where pressing the 'm' key stops the sound, and pressing 'm' again resumes the sound clip.
+
+### 2.14 (Optional) Making the camera follow the player
+Games need to have the camera focus on the play area, so that the player does not miss out on any action. The position of the camera depends on the type of game (First Person Shooters vs. 2D Platformers). The camera in this case should follow the "player object" that was defined earlier. Even though this can be done via a script that is applied to the camera, there is a much simpler way to accomplish this.
+
+## IMPORTANT
+**Please do not push the entire project to GitHub at once. Commit the steps in the project step by step.**
+
+**Upload a brief video demonstrating the project's steps to Moodle.**
