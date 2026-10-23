@@ -170,7 +170,7 @@ PlayerSettings:
   androidMaxAspectRatio: 2.1
   androidMinAspectRatio: 1
   applicationIdentifier:
-    Standalone: com.DefaultCompany.CollisionTests
+    Standalone: com.DefaultCompany.Collision-Tests
   buildNumber:
     Standalone: 0
     VisionOS: 0
