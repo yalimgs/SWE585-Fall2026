@@ -59,8 +59,7 @@ public class Guard : MonoBehaviour
             RaycastHit hit;
             if (Physics.Raycast(transform.position, toPlayer.normalized, out hit, viewDistance) && hit.transform == player)
             {
-                Debug.Log("caught by the guard!");
-                SceneManager.LoadScene(SceneManager.GetActiveScene().name); // restart the level
+                GameManager.instance.Lose("A guard caught you!");
             }
         }
     }

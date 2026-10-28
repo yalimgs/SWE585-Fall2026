@@ -35,11 +35,14 @@ public class Trap : MonoBehaviour
     // unity calls this again and again while something is inside the trap
     void OnTriggerStay(Collider other)
     {
+            // unity calls this again and again while something is inside the trap
+    void OnTriggerStay(Collider other)
+    {
         // kill only the player, and only when the fire is on
         if (isOn && other.CompareTag("Player"))
         {
-            Debug.Log("burned by the trap!");
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name); // restart the level
+            GameManager.instance.Lose("You got burned by the fire!");
         }
+    }
     }
 }
