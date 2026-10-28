@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 // fire trap that turns on and off again and again
 public class Trap : MonoBehaviour
@@ -28,6 +29,17 @@ public class Trap : MonoBehaviour
             isOn = false;
             fire.enabled = false;  // hide the fire
             yield return new WaitForSeconds(offTime);
+        }
+    }
+
+    // unity calls this again and again while something is inside the trap
+    void OnTriggerStay(Collider other)
+    {
+        // kill only the player, and only when the fire is on
+        if (isOn && other.CompareTag("Player"))
+        {
+            Debug.Log("burned by the trap!");
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name); // restart the level
         }
     }
 }
