@@ -40,9 +40,12 @@ public class MazeBuilder : MonoBehaviour
                 if (map[row][col] == '#')
                 {
                     GameObject wall = GameObject.CreatePrimitive(PrimitiveType.Cube);
-                    wall.transform.position = new Vector3(col * size, size / 2f, -row * size);
-                    wall.transform.localScale = new Vector3(size, size, size);
                     wall.transform.parent = transform; // keep walls under the maze object
+
+                    // shift everything by half the maze so the centre of the maze is the maze object
+                    float half = (map.Length - 1) * size / 2f;
+                    wall.transform.localPosition = new Vector3(col * size - half, size / 2f, -row * size + half);
+                    wall.transform.localScale = new Vector3(size, size, size);
                 }
             }
         }
