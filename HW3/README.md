@@ -38,9 +38,11 @@ These controls are also shown on the screen in the bottom-left corner during the
 ### Key
 *The key object, preferably a basic cube, should be affected by physics including forces, collisions and gravity. The player should be able to push the key around.*
 
-The key is a 1 m golden cube with a soft point light, so it can be seen from far away. It sits in the key room in the top-left corner of the maze.
+The key is a big rusty golden key (the **Rust Key** model from the Asset Store) with a soft point light, so it can be seen from far away. It sits in the key room in the top-left corner of the maze.
 
-It has a **Rigidbody** (mass 2 kg, linear damping 1, continuous collision detection), so it falls with gravity, collides with the walls and slides when pushed. The player pushes it with the `BasicRigidBodyPush` script on the character, which adds a force to the key every time the character walks into it.
+For physics the key works like a box: it has a **Box Collider** that fits around the model and a **Rigidbody** (continuous collision detection), so it falls with gravity, collides with the walls and slides when pushed. Its rotation is frozen, so it never rolls over or turns sideways in a corridor and always slides straight. The model is scaled up to about 1 m × 0.8 m × 1.9 m, so the character pushes it instead of stepping over it.
+
+The player pushes it with the `BasicRigidBodyPush` script on the character, which adds a force to the key every time the character walks into it.
 
 ### Door and winning
 *Collision of the key with the door shall end the game. You are expected to utilize the OnCollisionEnter function for that. Door Object can be a basic plane that will be opened when collision occurs with the key.*
@@ -52,10 +54,11 @@ The door is a thin green glowing plate that closes the only opening in the outer
 ### Fire traps
 *The player must overcome a challenge to get the key. The challenge should be a trap that periodically enables and disables. So that if the player gets caught, it should die before being able to complete the game. You are expected to use Coroutines so that the movement of the trap occurs periodically.*
 
-There are **3 fire traps**. Each one is a wall of flames (particle system) across a corridor, with a dark burnt mark on the floor that is always visible, so the player knows where the fire will come out.
+There are **4 fire traps**. Each one is a wall of flames (particle system) across a corridor, with a dark burnt mark on the floor that is always visible, so the player knows where the fire will come out.
 
 - **Trap 1** is at the exit of the key room. It is the only way in and out, so the player has to pass it to get the key and again to push the key out.
-- **Trap 2** and **Trap 3** block two other corridors on the right side of the maze.
+- **Trap 2** and **Trap 3** block two corridors on the right side of the maze.
+- **Trap 4** blocks the long corridor on the left side of the maze.
 
 `Trap.cs` runs a coroutine (`FireLoop`) that repeats forever: flames on, `WaitForSeconds(onTime)`, flames off, `WaitForSeconds(offTime)`. Each trap has its own on/off times set in the Inspector, so they do not burn at the same moment.
 
@@ -112,4 +115,5 @@ All of this is handled by `GameManager.cs`, which uses `Time.timeScale` to freez
 <table>
   <tr><td>Starter Assets – Third Person (Unity Technologies)</td><td>Player character, animations and follow camera</td></tr>
   <tr><td>Hand Painted Stone Texture (LowlyPoly)</td><td>Stone texture for the maze walls and the floor</td></tr>
+  <tr><td>Rust Key (Aleksn09)</td><td>Key model</td></tr>
 </table>
