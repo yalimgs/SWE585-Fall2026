@@ -8,6 +8,7 @@ public class Guard : MonoBehaviour
     public Vector3 pointB;           // second end of the patrol
     public float speed = 2f;         // walking speed in m/s
     public float waitTime = 1f;      // seconds it waits at each end
+    public float turnSpeed = 180f;   // how fast it turns around in degrees per second
     public float viewDistance = 4f;  // how far it can see in metres
     public float viewAngle = 60f;    // how wide it can see to the left and right in degrees
 
@@ -39,11 +40,12 @@ public class Guard : MonoBehaviour
         }
     }
 
-    // coroutine: move a little bit every frame until we reach the target
+    // coroutine: turn to the target, then move a little bit every frame until we reach it
     IEnumerator WalkTo(Vector3 target)
     {
-        transform.LookAt(target);       // turn to face where we are going
-        anim.SetFloat("Speed", speed);  // play the walk animation
+        yield return StartCoroutine(TurnTo(target)); // turn slowly to face where we are going
+
+        anim.SetFloat("Speed", speed); // play the walk animation
 
         while (Vector3.Distance(transform.position, target) > 0.05f)
         {
@@ -51,7 +53,21 @@ public class Guard : MonoBehaviour
             yield return null; // wait one frame, then continue
         }
 
-        anim.SetFloat("Speed", 0f);     // arrived: play the idle animation
+        anim.SetFloat("Speed", 0f); // arrived: play the idle animation
+    }
+
+    // coroutine: turn a little bit every frame until we face the target
+    IEnumerator TurnTo(Vector3 target)
+    {
+        Quaternion goal = Quaternion.LookRotation(target - transform.position); // the direction we want to face
+
+        while (Quaternion.Angle(transform.rotation, goal) > 1f)
+        {
+            transform.rotation = Quaternion.RotateTowards(transform.rotation, goal, turnSpeed * Time.deltaTime);
+            yield return null; // wait one frame, then continue
+        }
+
+        transform.rotation = goal; // finish the turn exactly
     }
 
     // every frame check if the guard can see the player
