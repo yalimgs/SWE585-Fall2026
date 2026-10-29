@@ -2,7 +2,8 @@
 
 **Name, Surname:** Yalım Özçağlayan  
 **Unity Version:** 6000.3.26f1 (URP)  
-**Scene:** `Assets/Scenes/MazeScene.unity`
+**Scene:** `Assets/Scenes/MazeScene.unity`  
+**Video:** https://youtu.be/aDyq1b5auOw
 
 ---
 
