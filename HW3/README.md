@@ -19,7 +19,7 @@ From the start point at the bottom of the maze the player can go left or right. 
 
 ![Maze map](Docs/maze_map.png)
 
-*Top view of the maze. Red = fire traps, green = door, gold = key, purple = guards. The player starts in the middle of the bottom corridor.*
+*Top view of the maze. Red = fire traps, green = door (top-right), gold = key (top-left), purple = guards. The player starts in the middle of the bottom corridor.*
 
 ### Player
 The player is the Third Person Controller from Unity's **Starter Assets** package, with a camera that follows from behind.
@@ -49,9 +49,9 @@ The player pushes it with the `BasicRigidBodyPush` script on the character, whic
 ### Door and winning
 *Collision of the key with the door shall end the game. You are expected to utilize the OnCollisionEnter function for that. Door Object can be a basic plane that will be opened when collision occurs with the key.*
 
-The door is a thin green glowing plate that closes the only opening in the outer wall, at the top-right of the maze. It lines up with the top corridor, so the key can be pushed out of the key room and straight along the corridor to the door.
+The door is a wooden double castle door in a stone frame (the **Medieval Castle – Modular** pack from the Asset Store). It closes the only opening in the outer wall, at the top-right of the maze, and it lines up with the top corridor, so the key can be pushed out of the key room and along the corridor to the door.
 
-`Door.cs` uses `OnCollisionEnter`. When the object that hits the door is the **Key**, the door is hidden (it opens) and the game shows the win screen. If the player touches the door, nothing happens.
+The door has an invisible box collider that fills the opening. `Door.cs` uses `OnCollisionEnter`: when the object that hits the door is the **Key**, a coroutine swings the two door wings open around their hinges in 1.5 seconds, and then the game shows the win screen. If the player touches the door, nothing happens.
 
 ### Fire traps
 *The player must overcome a challenge to get the key. The challenge should be a trap that periodically enables and disables. So that if the player gets caught, it should die before being able to complete the game. You are expected to use Coroutines so that the movement of the trap occurs periodically.*
@@ -104,7 +104,7 @@ All of this is handled by `GameManager.cs`, which uses `Time.timeScale` to freez
 
 <table>
   <tr><td><code>MazeBuilder.cs</code></td><td>Builds the maze walls from the text map</td></tr>
-  <tr><td><code>Door.cs</code></td><td>Opens the door and wins the game when the key hits it (<code>OnCollisionEnter</code>)</td></tr>
+  <tr><td><code>Door.cs</code></td><td>Opens the door wings (coroutine) and wins the game when the key hits the door (<code>OnCollisionEnter</code>)</td></tr>
   <tr><td><code>Trap.cs</code></td><td>Turns the fire on and off (coroutine) and kills the player</td></tr>
   <tr><td><code>Guard.cs</code></td><td>Patrols between two points and turns around (coroutines), plays the robot animations and catches the player</td></tr>
   <tr><td><code>GuardAnimationEvents.cs</code></td><td>Receives the footstep signals from the robot's walk animation</td></tr>
@@ -119,4 +119,5 @@ All of this is handled by `GameManager.cs`, which uses `Time.timeScale` to freez
   <tr><td>Starter Assets – Third Person (Unity Technologies)</td><td>Player character, follow camera, and the Space Robot Kyle model and animations used for the guards</td></tr>
   <tr><td>Hand Painted Stone Texture (LowlyPoly)</td><td>Stone texture for the maze walls and the floor</td></tr>
   <tr><td>Rust Key (Aleksn09)</td><td>Key model</td></tr>
+  <tr><td>Medieval Castle – Modular (AS Advance Studios)</td><td>Double door and stone frame model</td></tr>
 </table>
