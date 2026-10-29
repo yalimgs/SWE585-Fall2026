@@ -40,7 +40,9 @@ These controls are also shown on the screen in the bottom-left corner during the
 
 The key is a big rusty golden key (the **Rust Key** model from the Asset Store) with a soft point light, so it can be seen from far away. It sits in the key room in the top-left corner of the maze.
 
-For physics the key works like a box: it has a **Box Collider** that fits around the model and a **Rigidbody** (continuous collision detection), so it falls with gravity, collides with the walls and slides when pushed. Its rotation is frozen, so it never rolls over or turns sideways in a corridor and always slides straight. The model is scaled up to about 1 m × 0.8 m × 1.9 m, so the character pushes it instead of stepping over it.
+For physics the key works like a box: it has a **Box Collider** a little smaller than the model and a **Rigidbody** (mass 2 kg, continuous collision detection), so it falls with gravity, collides with the walls and slides when pushed. Its rotation is frozen, so it never rolls over or turns sideways in a corridor and always slides straight. The model is scaled up to about 1 m × 0.8 m × 1.9 m, so the character pushes it instead of stepping over it.
+
+The key has a frictionless physics material, so it slides along the walls instead of getting stuck on them. Linear damping slows it down quickly, so it stops soon after the player stops pushing.
 
 The player pushes it with the `BasicRigidBodyPush` script on the character, which adds a force to the key every time the character walks into it.
 
@@ -67,12 +69,12 @@ The trap has a trigger collider. In `OnTriggerStay`, if the fire is on and the o
 ### Guards
 *Also add guards who constantly move from a specific point to another specific point along the path. If the player passes in front of the guards and is too close to the guards, the user will fail.*
 
-There are **2 guards**. Each guard walks between two points, waits 1 second at each end, turns around and walks back.
+There are **2 guards**. Each guard is a robot (**Space Robot Kyle** from Unity's Starter Assets) that walks between two points with a walking animation, stops for 1 second at each end, slowly turns around and walks back.
 
 - **Guard 1** patrols the long corridor on the left side of the maze, from (−6, 9) to (−6, −9).
 - **Guard 2** patrols the long corridor on the right side, from (12, −3) to (12, −15).
 
-`Guard.cs` uses two coroutines: `Patrol` loops between the two points, and `WalkTo` moves the guard a little every frame (`yield return null`) until it reaches the target. The guard always faces the way it walks, and a black visor shows its front.
+`Guard.cs` uses three coroutines: `Patrol` loops between the two points, `TurnTo` rotates the guard a little every frame until it faces the next point, and `WalkTo` moves the guard a little every frame (`yield return null`) until it reaches the target. The script also tells the robot's Animator when to play the walk and idle animations.
 
 **Catching the player:** a guard sees up to 4 m in front of it, 60° to the left and right. Every frame it checks whether the player is inside this area and sends a raycast to make sure there is no wall in between. If the player is seen, the player fails. Passing behind a guard or behind a wall is safe.
 
@@ -104,7 +106,8 @@ All of this is handled by `GameManager.cs`, which uses `Time.timeScale` to freez
   <tr><td><code>MazeBuilder.cs</code></td><td>Builds the maze walls from the text map</td></tr>
   <tr><td><code>Door.cs</code></td><td>Opens the door and wins the game when the key hits it (<code>OnCollisionEnter</code>)</td></tr>
   <tr><td><code>Trap.cs</code></td><td>Turns the fire on and off (coroutine) and kills the player</td></tr>
-  <tr><td><code>Guard.cs</code></td><td>Patrols between two points (coroutines) and catches the player</td></tr>
+  <tr><td><code>Guard.cs</code></td><td>Patrols between two points and turns around (coroutines), plays the robot animations and catches the player</td></tr>
+  <tr><td><code>GuardAnimationEvents.cs</code></td><td>Receives the footstep signals from the robot's walk animation</td></tr>
   <tr><td><code>VisionCone.cs</code></td><td>Draws the guard's view area on the floor, cut by walls</td></tr>
   <tr><td><code>MusicToggle.cs</code></td><td>Turns the background music on and off with M</td></tr>
   <tr><td><code>GameManager.cs</code></td><td>Win / lose screen, pause menu, Play Again and Quit</td></tr>
@@ -113,7 +116,7 @@ All of this is handled by `GameManager.cs`, which uses `Time.timeScale` to freez
 ## Assets from the Unity Asset Store
 
 <table>
-  <tr><td>Starter Assets – Third Person (Unity Technologies)</td><td>Player character, animations and follow camera</td></tr>
+  <tr><td>Starter Assets – Third Person (Unity Technologies)</td><td>Player character, follow camera, and the Space Robot Kyle model and animations used for the guards</td></tr>
   <tr><td>Hand Painted Stone Texture (LowlyPoly)</td><td>Stone texture for the maze walls and the floor</td></tr>
   <tr><td>Rust Key (Aleksn09)</td><td>Key model</td></tr>
 </table>
