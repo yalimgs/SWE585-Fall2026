@@ -1,6 +1,5 @@
 using System.Collections;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 // guard that walks between two points and catches the player if he gets too close in front of it
 public class Guard : MonoBehaviour
@@ -13,12 +12,19 @@ public class Guard : MonoBehaviour
     public float viewAngle = 60f;    // how wide it can see to the left and right in degrees
 
     Transform player;
+    Animator anim; // the animator on the robot model inside the guard
 
     void Start()
     {
         player = GameObject.FindWithTag("Player").transform; // find the player once
-        transform.position = pointA;                          // start at point a
-        StartCoroutine(Patrol());                             // start walking
+        anim = GetComponentInChildren<Animator>();           // find the robot's animator
+
+        // tell the animation the robot stands on the ground and plays at normal speed
+        anim.SetBool("Grounded", true);
+        anim.SetFloat("MotionSpeed", 1f);
+
+        transform.position = pointA; // start at point a
+        StartCoroutine(Patrol());    // start walking
     }
 
     // coroutine: walk to b, wait, walk to a, wait, forever
@@ -36,12 +42,16 @@ public class Guard : MonoBehaviour
     // coroutine: move a little bit every frame until we reach the target
     IEnumerator WalkTo(Vector3 target)
     {
-        transform.LookAt(target); // turn to face where we are going
+        transform.LookAt(target);       // turn to face where we are going
+        anim.SetFloat("Speed", speed);  // play the walk animation
+
         while (Vector3.Distance(transform.position, target) > 0.05f)
         {
             transform.position = Vector3.MoveTowards(transform.position, target, speed * Time.deltaTime);
             yield return null; // wait one frame, then continue
         }
+
+        anim.SetFloat("Speed", 0f);     // arrived: play the idle animation
     }
 
     // every frame check if the guard can see the player
